@@ -79,10 +79,19 @@ public class PlanRepositorio {
 
 		return null;
 	}
-
+		
 	// endRegion > agregarAnio
-	// //////////////////////////////////////
 
+	// {{ EliminarPlan (action)
+		@MemberOrder(sequence = "1")
+		public String eliminarPlan(final @Named("Plan a eliminar") Plan plan) {
+			String descripcion = plan.getDescripcion();
+			container.remove(plan);
+			return "El plan de estudio '" + descripcion + "' ha sido Eliminado";
+		}
+	
+	
+	
 	// region > injected services
 	// //////////////////////////////////////
 
