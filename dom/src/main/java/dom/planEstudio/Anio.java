@@ -7,6 +7,9 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.util.ObjectContracts;
+
+import dom.simple.SimpleObject;
 
 @SuppressWarnings("unused")
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -14,7 +17,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 @javax.jdo.annotations.Version(strategy = VersionStrategy.VERSION_NUMBER, column = "version")
 @ObjectType("ANIO")
 @Bookmarkable
-public class Anio {
+public class Anio implements Comparable<Anio>{
 
 	// {{ AnioNumero (property)
 	private int anioNumero;
@@ -28,8 +31,8 @@ public class Anio {
 	public void setAnioNumero(final int anioNumero) {
 		this.anioNumero = anioNumero;
 	}
-	// }}
 
+	// }}
 
 	// {{ Plan (property)
 	private Plan plan;
@@ -44,7 +47,15 @@ public class Anio {
 		this.plan = plan;
 	}
 	// }}
-
-
 	
+	//region > compareTo
+    // //////////////////////////////////////
+
+    @Override
+    public int compareTo(Anio other) {
+        return ObjectContracts.compare(this, other, "anioNumero");
+    }
+
+    //endregion
+
 }

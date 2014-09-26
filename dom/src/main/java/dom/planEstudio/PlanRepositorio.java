@@ -1,8 +1,11 @@
 package dom.planEstudio;
 
+import java.util.List;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.Named;
 
 @DomainService(menuOrder = "10", repositoryFor = Plan.class)
 public class PlanRepositorio {
@@ -21,6 +24,30 @@ public class PlanRepositorio {
 	}
 
 	// }}
+	
+	
+	// region > agregarAnio
+	// //////////////////////////////////////
+	@MemberOrder(sequence = "3")
+	public Plan agregarAnio(	final @Named("Plan") Plan plan,
+								final @Named("") int anioNumero) {
+		
+		Anio nuevoAnio = new Anio();
+		nuevoAnio.setAnioNumero(anioNumero);
+		
+		plan.getAnioList().add(nuevoAnio);
+				
+		return plan; 
+	}
+	
+	
+	
+	// endRegion > agregarAnio
+	// //////////////////////////////////////
+
+	
+	
+	
 
 	// region > injected services
 	// //////////////////////////////////////
