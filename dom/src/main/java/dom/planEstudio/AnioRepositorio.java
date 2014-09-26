@@ -20,9 +20,5 @@ public class AnioRepositorio {
 		return anio;
 	}
 	
-	@MemberOrder(sequence = "1")
-	@Named("<== Volver")
-	public Plan volver(final @Named("Año") Anio anio){
-		return anio.getPlan();
-	}
+	
 }

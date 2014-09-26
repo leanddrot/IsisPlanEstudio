@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.DomainService;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.query.QueryDefault;
 import org.datanucleus.store.query.Query;
 
@@ -13,7 +15,7 @@ import org.datanucleus.store.query.Query;
 public class MateriaRepositorio {
 
 	// {{ listarPlanes (action)
-	@MemberOrder(sequence = "1")
+	@MemberOrder(sequence = "2")
 	public List<Materia> listarMateriasDeUnAnio(final @Named("Plan") Plan plan,
 			final @Named("") Anio anio) {
 		return container.allMatches(new QueryDefault<Materia>(Materia.class,
@@ -38,6 +40,7 @@ public class MateriaRepositorio {
 	
 	// }}
 
+	
 	// region > injected services
 	// //////////////////////////////////////
 
