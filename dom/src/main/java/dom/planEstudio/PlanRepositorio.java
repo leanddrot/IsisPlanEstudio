@@ -35,7 +35,7 @@ public class PlanRepositorio {
 
 	// }}
 
-	// {{ listarPlanes (action)
+	// {{ seleccionar un Plan (action)
 	@MemberOrder(sequence = "1.5")
 	public Plan seleccionarUnPlan(Plan plan) {
 		return plan;
@@ -79,27 +79,26 @@ public class PlanRepositorio {
 
 		return null;
 	}
-		
+
 	// endRegion > agregarAnio
 
 	// {{ EliminarPlan (action)
-		@MemberOrder(sequence = "1")
-		public String eliminarPlan(	final @Named("Plan a eliminar") Plan plan,
-									final @Named("Esta seguro?") Boolean seguro) {
-			String descripcion = plan.getDescripcion();
-			container.remove(plan);
-			return "El plan de estudio '" + descripcion + "' ha sido Eliminado";
+	@MemberOrder(sequence = "1.1")
+	public String eliminarPlan(final @Named("Plan a eliminar") Plan plan,
+			final @Named("Esta seguro?") Boolean seguro) {
+		String descripcion = plan.getDescripcion();
+		container.remove(plan);
+		return "El plan de estudio '" + descripcion + "' ha sido Eliminado";
+	}
+
+	public String validateEliminarPlan(Plan plan, Boolean seguro) {
+		if (!seguro) {
+			return "Marque en la opcion si está seguro!!! Si no lo está cancele esta opción";
 		}
-	
-		public String validateEliminarPlan(	Plan plan,Boolean seguro){
-			if (!seguro){
-				return "Marque en la opcion si está seguro!!! Si no lo está cancele esta opción";
-			}
-			
-			return null;
-		}
-	
-	
+
+		return null;
+	}
+
 	// region > injected services
 	// //////////////////////////////////////
 
