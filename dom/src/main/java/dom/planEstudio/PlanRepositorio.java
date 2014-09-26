@@ -27,6 +27,22 @@ public class PlanRepositorio {
 
 	// }}
 
+	// {{ listarPlanes (action)
+	@MemberOrder(sequence = "1.2")
+	public List<Plan> listarPlanes() {
+		return container.allInstances(Plan.class);
+	}
+
+	// }}
+
+	// {{ listarPlanes (action)
+	@MemberOrder(sequence = "1.5")
+	public Plan seleccionarUnPlan(Plan plan) {
+		return plan;
+	}
+
+	// }}
+
 	// region > agregarAnio
 	// //////////////////////////////////////
 	@MemberOrder(sequence = "3")
