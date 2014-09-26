@@ -14,7 +14,7 @@ public class PlanRepositorio {
 		Plan plan = container.newTransientInstance(Plan.class);
 
 		plan.setDescripcion(descripcion);
-
+		
 		container.persistIfNotAlready(plan);
 
 		return plan;
