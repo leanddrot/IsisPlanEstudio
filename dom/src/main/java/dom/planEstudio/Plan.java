@@ -1,5 +1,7 @@
 package dom.planEstudio;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -9,6 +11,7 @@ import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.VersionStrategy;
+
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bounded;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -21,10 +24,7 @@ import org.apache.isis.applib.annotation.Render.Type;
 @javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY, column = "id")
 @javax.jdo.annotations.Version(strategy = VersionStrategy.VERSION_NUMBER, column = "version")
 
-@javax.jdo.annotations.Queries({
-	@javax.jdo.annotations.Query(name = "listarAnios", language = "JDOQL", value = "SELECT "
-			+ "FROM dom.planEstudio.Anio " + "WHERE this.plan.descripcion == :descripcion")
-	})
+
 
 @ObjectType("PLAN")
 @Bookmarkable
@@ -49,15 +49,15 @@ public class Plan {
 
 	@Persistent(mappedBy = "plan", dependentElement = "true")
 	@Join
-	private SortedSet<Anio> aniolist = new TreeSet<Anio>();
+	private List<Anio> aniolist = new ArrayList<Anio>();
 
 	@MemberOrder(sequence = "1")
 	@Render(Type.EAGERLY)
-	public SortedSet<Anio> getAnioList() {
+	public List<Anio> getAnioList() {
 		return aniolist;
 	}
 
-	public void setAnioList(final SortedSet<Anio> aniolist) {
+	public void setAnioList(final List<Anio> aniolist) {
 		this.aniolist = aniolist;
 	}
 
