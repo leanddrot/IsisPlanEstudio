@@ -14,7 +14,9 @@ import org.apache.isis.applib.annotation.ObjectType;
 @javax.jdo.annotations.Version(strategy = VersionStrategy.VERSION_NUMBER, column = "version")
 @javax.jdo.annotations.Queries({ @javax.jdo.annotations.Query(name = "listarMateriasDeUnAnio", language = "JDOQL", value = "SELECT "
 		+ "FROM dom.planEstudio.Materia "
-		+ "WHERE this.anio.anioNumero == :anio") })
+		+ "WHERE this.anio.anioNumero == :anio " 
+		+ "&& this.anio.plan.descripcion == :plan") 
+})
 @ObjectType("MATERIA")
 @Bookmarkable
 public class Materia {
