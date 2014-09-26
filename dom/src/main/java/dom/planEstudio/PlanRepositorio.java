@@ -1,5 +1,6 @@
 package dom.planEstudio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.isis.applib.DomainObjectContainer;
@@ -40,6 +41,17 @@ public class PlanRepositorio {
 		return plan; 
 	}
 	
+	public List<Integer> choices1AgregarAnio(){
+		
+		List<Integer> aniosDisponibles = new ArrayList<Integer>();
+		
+		for (int i=1; i<9; i++){
+			aniosDisponibles.add(i);
+		}
+		
+		return aniosDisponibles;
+		
+	}
 	
 	
 	// endRegion > agregarAnio
