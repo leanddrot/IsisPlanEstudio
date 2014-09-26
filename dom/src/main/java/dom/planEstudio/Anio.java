@@ -10,6 +10,7 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.annotation.Bookmarkable;
+import org.apache.isis.applib.annotation.Bounded;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render;
@@ -27,6 +28,7 @@ import dom.simple.SimpleObject;
 		+ "WHERE this.plan.descripcion == :descripcion") })
 @ObjectType("ANIO")
 @Bookmarkable
+@Bounded
 public class Anio implements Comparable<Anio> {
 
 	// {{ AnioNumero (property)
