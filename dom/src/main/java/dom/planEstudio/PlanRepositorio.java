@@ -84,12 +84,20 @@ public class PlanRepositorio {
 
 	// {{ EliminarPlan (action)
 		@MemberOrder(sequence = "1")
-		public String eliminarPlan(final @Named("Plan a eliminar") Plan plan) {
+		public String eliminarPlan(	final @Named("Plan a eliminar") Plan plan,
+									final @Named("Esta seguro?") Boolean seguro) {
 			String descripcion = plan.getDescripcion();
 			container.remove(plan);
 			return "El plan de estudio '" + descripcion + "' ha sido Eliminado";
 		}
 	
+		public String validateEliminarPlan(	Plan plan,Boolean seguro){
+			if (!seguro){
+				return "Marque en la opcion si está seguro!!! Si no lo está cancele esta opción";
+			}
+			
+			return null;
+		}
 	
 	
 	// region > injected services
