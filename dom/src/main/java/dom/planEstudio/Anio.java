@@ -80,6 +80,16 @@ public class Anio implements Comparable<Anio> {
 
 	// end region MateriaList (Collection)
 	
+	// Title (GUI)
+	// //////////////////////////////////////////
+
+	public String title() {
+		return getAnioNumero() + "°";
+	}
+
+	// end region Title (GUI)
+	// //////////////////////////////////////////
+	
 
 	
 	// region > compareTo
