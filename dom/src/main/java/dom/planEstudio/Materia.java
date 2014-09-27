@@ -7,6 +7,7 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Title;
 
 @SuppressWarnings("unused")
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -38,7 +39,7 @@ public class Materia {
 
 	// {{ Nombre (property)
 	private String nombre;
-
+	@Title
 	@MemberOrder(sequence = "1")
 	@Column(allowsNull = "true")
 	public String getNombre() {
