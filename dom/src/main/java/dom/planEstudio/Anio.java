@@ -29,7 +29,7 @@ import dom.simple.SimpleObject;
 @ObjectType("ANIO")
 @Bookmarkable
 @Bounded
-public class Anio implements Comparable<Anio> {
+public class Anio {
 
 	// {{ AnioNumero (property)
 	private int anioNumero;
@@ -95,11 +95,7 @@ public class Anio implements Comparable<Anio> {
 	// region > compareTo
 	// //////////////////////////////////////
 
-	@Override
-	public int compareTo(Anio other) {
-		return ObjectContracts.compare(this, other, "anioNumero");
-	}
-
+	
 	// endregion
 
 }
