@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.DomainService;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
@@ -12,8 +13,8 @@ import dom.planEstudio.Anio;
 import dom.planEstudio.Materia;
 import dom.planEstudio.Plan;
 import dom.planEstudio.PlanRepositorio;
-
-@DomainService(menuOrder = "60", repositoryFor = Curso.class)
+@Hidden
+@DomainService(repositoryFor = Curso.class)
 public class CursoRepositorio {
 
 	public Curso crearCurso(Plan plan, Anio anio, String division) {

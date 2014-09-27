@@ -7,6 +7,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.NotContributed;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.query.QueryDefault;
@@ -45,6 +46,7 @@ public class PlanRepositorio {
 
 	// {{ seleccionar un Plan (action)
 	@MemberOrder(sequence = "1.5")
+	@NotContributed
 	public Plan seleccionarUnPlan(Plan plan) {
 		return plan;
 	}
