@@ -9,7 +9,6 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.NotInServiceMenu;
 
-
 @DomainService(repositoryFor = Anio.class)
 public class AnioRepositorio {
 
@@ -49,7 +48,10 @@ public class AnioRepositorio {
 		}
 
 		return aniosDisponibles;
+	}
 
+	public int default1AgregarAnio() {
+		return choices1AgregarAnio().get(0);
 	}
 
 	public String validateAgregarAnio(Plan plan, int anioNumero) {
