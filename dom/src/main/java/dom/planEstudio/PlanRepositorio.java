@@ -48,6 +48,18 @@ public class PlanRepositorio {
 	public Plan seleccionarUnPlan(Plan plan) {
 		return plan;
 	}
+	
+	public List<Plan> choices0SeleccionarUnPlan(){
+		return queryListarPlanesAlfabeticamente();
+	}
+	
+	public Plan default0SeleccionarUnPlan(){
+		List<Plan> planList = queryListarPlanesAlfabeticamente();
+		if (planList.isEmpty()){
+			return null;
+		}
+		return planList.get(0);
+	}
 
 	// }}
 

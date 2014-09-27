@@ -7,15 +7,20 @@ import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.NotContributed;
+import org.apache.isis.applib.annotation.NotInServiceMenu;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.query.QueryDefault;
 import org.datanucleus.store.query.Query;
 
-@DomainService(menuOrder = "30", repositoryFor = Materia.class)
+@Hidden
+@DomainService(repositoryFor = Materia.class)
 public class MateriaRepositorio {
 
 	// {{ listarMateriasDeUnAnio (action)
 	@MemberOrder(sequence = "2")
+	@NotContributed
+	@NotInServiceMenu
 	public List<Materia> listarMateriasDeUnAnio(final @Named("Plan") Plan plan,
 			final @Named("") Anio anio) {
 		return container.allMatches(new QueryDefault<Materia>(Materia.class,
