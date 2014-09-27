@@ -8,6 +8,7 @@ import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.Query;
+import org.apache.isis.applib.query.QueryDefault;
 
 @DomainService(menuOrder = "10", repositoryFor = Plan.class)
 public class PlanRepositorio {
@@ -30,7 +31,13 @@ public class PlanRepositorio {
 	// {{ listarPlanes (action)
 	@MemberOrder(sequence = "1.2")
 	public List<Plan> listarPlanes() {
-		return container.allInstances(Plan.class);
+		return queryListarPlanesAlfabeticamente();
+	}
+
+	public List<Plan> queryListarPlanesAlfabeticamente() {
+		return container.allMatches(new QueryDefault<Plan>(Plan.class,
+				"listarPlanes" 
+				));
 	}
 
 	// }}
