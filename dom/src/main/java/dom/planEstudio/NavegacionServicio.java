@@ -11,14 +11,14 @@ import org.apache.isis.applib.annotation.PublishedAction;
 public class NavegacionServicio {
 
 	@MemberOrder(sequence = "1")
-	@Named("<== Volver")
+	@Named("< Volver al Plan")
 	@PublishedAction
 	public Plan volver(final @Named("Año") Anio anio){
 		return anio.getPlan();
 	}
 
 	@MemberOrder(sequence = "1")
-	@Named("<== Volver")
+	@Named("< Volver a la Materia")
 	@PublishedAction
 	public Anio volver(final @Named("Año") Materia materia){
 		return materia.getAnio();
