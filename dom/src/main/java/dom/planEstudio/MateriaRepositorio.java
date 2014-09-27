@@ -14,7 +14,7 @@ import org.datanucleus.store.query.Query;
 @DomainService(menuOrder = "30", repositoryFor = Materia.class)
 public class MateriaRepositorio {
 
-	// {{ listarPlanes (action)
+	// {{ listarMateriasDeUnAnio (action)
 	@MemberOrder(sequence = "2")
 	public List<Materia> listarMateriasDeUnAnio(final @Named("Plan") Plan plan,
 			final @Named("") Anio anio) {

@@ -50,44 +50,7 @@ public class PlanRepositorio {
 
 	// }}
 
-	// region > agregarAnio
-	// //////////////////////////////////////
-	@MemberOrder(sequence = "3")
-	public Plan agregarAnio(final @Named("Plan") Plan plan,
-			final @Named("") int anioNumero) {
-
-		Anio nuevoAnio = new Anio();
-		nuevoAnio.setAnioNumero(anioNumero);
-
-		plan.getAnioList().add(nuevoAnio);
-
-		return plan;
-	}
-
-	public List<Integer> choices1AgregarAnio() {
-
-		List<Integer> aniosDisponibles = new ArrayList<Integer>();
-
-		for (int i = 1; i < 9; i++) {
-			aniosDisponibles.add(i);
-		}
-
-		return aniosDisponibles;
-
-	}
-
-	public String validateAgregarAnio(Plan plan, int anioNumero) {
-		List<Anio> aniosList = plan.getAnioList();
-		for (Anio anio : aniosList) {
-			if (anio.getAnioNumero() == anioNumero) {
-				return "El año '" + anioNumero + "' ya fué creado";
-			}
-		}
-
-		return null;
-	}
-
-	// endRegion > agregarAnio
+	
 
 	// {{ EliminarPlan (action)
 	@MemberOrder(sequence = "1.1")
